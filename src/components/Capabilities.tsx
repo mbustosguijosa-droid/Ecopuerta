@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import FadingVideo from "./FadingVideo";
+import WoodGrain from "./WoodGrain";
 import { LogoLockup } from "./Logo";
 import {
   DoorIcon,
@@ -11,7 +11,6 @@ import {
   ShieldIcon,
 } from "./Icons";
 import {
-  CAPABILITIES_VIDEO,
   CONTACT_EMAIL,
   FACEBOOK_URL,
   INSTAGRAM_URL,
@@ -81,20 +80,7 @@ export default function Capabilities() {
       id="servicios"
       className="relative min-h-screen overflow-hidden bg-black"
     >
-      <img
-        src="/img/armario-empotrado.webp"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 z-0 h-full w-full object-cover opacity-20 blur-sm"
-      />
-      <FadingVideo
-        src={CAPABILITIES_VIDEO}
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 z-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90"
-      />
+      <WoodGrain animate={false} className="opacity-60" />
 
       <div className="relative z-10 px-8 md:px-16 lg:px-20 pt-24 pb-10 flex flex-col min-h-screen">
         <motion.header
@@ -105,8 +91,8 @@ export default function Capabilities() {
           <p className="text-sm font-body text-white/80 mb-6">
             <span className="text-eco-light">//</span> Lo que hacemos
           </p>
-          <h2 className="font-heading italic text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-3px]">
-            Oficio artesano,
+          <h2 className="font-heading text-[3.25rem] sm:text-6xl md:text-7xl lg:text-[6rem] leading-[0.95] tracking-[-0.025em]">
+            Oficio <span className="em">artesano</span>,
             <br />
             de principio a fin
           </h2>
@@ -141,7 +127,7 @@ export default function Capabilities() {
               <div className="flex-1" />
 
               <div className="relative">
-                <h3 className="font-heading italic text-3xl md:text-4xl tracking-[-1px] leading-none">
+                <h3 className="font-heading text-3xl md:text-[2.5rem] tracking-[-0.02em] leading-[1.05]">
                   {card.title}
                 </h3>
                 <p className="mt-3 text-sm text-white/90 font-body font-light leading-snug max-w-[32ch]">

@@ -6,7 +6,8 @@ html,
 body {
   background: #000;
   color: #fff;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -55,8 +56,8 @@ html {
 .liquid-glass-strong {
   background: rgba(255, 255, 255, 0.01);
   background-blend-mode: luminosity;
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: none;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.15);
   position: relative;
@@ -84,8 +85,69 @@ html {
   pointer-events: none;
 }
 
+/* ---------- Tipografía de titulares ---------- */
+.font-heading {
+  font-weight: 300;
+  font-optical-sizing: auto;
+  font-variation-settings: 'SOFT' 60, 'WONK' 0;
+}
+.font-heading em,
+.font-heading .em {
+  font-style: italic;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+  color: #a7dcb5;
+}
+
+/* ---------- Fondo de vetas de madera ---------- */
+.grain-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: grain-draw 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes grain-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.grain-breathe {
+  transform-origin: 60% 40%;
+  animation: grain-breathe 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.grain-paused .grain-breathe {
+  animation-play-state: paused;
+}
+@media (max-width: 767px) {
+  .grain-breathe {
+    animation: none;
+    will-change: auto;
+  }
+}
+@keyframes grain-breathe {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(-2.5%, 1.5%, 0) scale(1.08);
+  }
+}
+
+.grain-glow {
+  background:
+    radial-gradient(38% 32% at 68% 38%, rgba(63, 164, 91, 0.22), transparent 70%),
+    radial-gradient(30% 26% at 25% 72%, rgba(196, 150, 96, 0.14), transparent 70%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .grain-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .grain-breathe {
+    animation: none;
   }
 }

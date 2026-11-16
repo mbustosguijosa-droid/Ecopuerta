@@ -27,7 +27,7 @@ export function LogoLockup({ className = '' }: { className?: string }) {
     <span className={`inline-flex items-center gap-3 ${className}`}>
       <LogoMark className="h-9 w-9 text-white" />
       <span className="flex flex-col leading-none">
-        <span className="font-heading italic text-2xl tracking-[-0.5px]">Ecopuerta</span>
+        <span className="font-heading text-2xl tracking-[-0.01em]">Ecopuerta</span>
         <span className="font-body text-[10px] font-medium uppercase tracking-[0.35em] text-eco-light">
           Factory
         </span>

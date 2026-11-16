@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import BlurText from './BlurText'
-import FadingVideo from './FadingVideo'
+import WoodGrain from './WoodGrain'
 import { LogoMark } from './Logo'
 import { ArrowUpRight, ClockIcon, HandIcon, Play } from './Icons'
-import { HERO_VIDEO, MAILTO } from '../data'
+import { MAILTO } from '../data'
 
 const fadeUp = {
   initial: { filter: 'blur(10px)', opacity: 0, y: 20 },
@@ -24,22 +24,7 @@ const MATERIALS = ['Madera', 'PVC', 'Aluminio', 'Vidrio', 'Herrajes']
 export default function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen md:h-screen overflow-hidden bg-black">
-      {/* Fondo: foto real del taller + vídeo atmosférico encima */}
-      <img
-        src="/img/vestidor.webp"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 z-0 h-full w-full object-cover object-center opacity-45 scale-105"
-      />
-      <FadingVideo
-        src={HERO_VIDEO}
-        className="absolute left-1/2 top-0 -translate-x-1/2 object-cover object-top z-0"
-        style={{ width: '120%', height: '120%' }}
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.25)_0%,rgba(0,0,0,0.75)_70%,#000_100%)]"
-      />
+      <WoodGrain />
 
       <div className="relative z-10 flex flex-col min-h-screen md:h-full">
         {/* Navbar */}
@@ -97,7 +82,8 @@ export default function Hero() {
           <div className="mt-6 max-w-4xl">
             <BlurText
               text="Puertas hechas a mano para durar toda una vida"
-              className="text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[0.8] tracking-[-4px]"
+              emphasis={['a', 'mano']}
+              className="text-[3.25rem] sm:text-6xl md:text-7xl lg:text-[5.75rem] font-heading text-white leading-[0.95] tracking-[-0.025em]"
             />
           </div>
 
@@ -146,7 +132,7 @@ export default function Hero() {
           </div>
           <ul className="flex flex-wrap justify-center gap-x-12 gap-y-2 md:gap-x-16">
             {MATERIALS.map((m) => (
-              <li key={m} className="font-heading italic text-2xl md:text-3xl tracking-tight text-white/90">
+              <li key={m} className="font-heading text-2xl md:text-3xl tracking-[-0.01em] text-white/85">
                 {m}
               </li>
             ))}
@@ -161,7 +147,7 @@ function StatCard({ icon, value, label }: { icon: React.ReactNode; value: string
   return (
     <div className="liquid-glass p-4 sm:p-5 w-[160px] sm:w-[220px] rounded-[1.25rem] text-left">
       <span className="text-eco-light">{icon}</span>
-      <div className="text-4xl font-heading italic tracking-[-1px] leading-none mt-4">{value}</div>
+      <div className="text-4xl font-heading tracking-[-0.02em] leading-none mt-4">{value}</div>
       <div className="mt-2 text-sm font-body font-light text-white/80 leading-snug">{label}</div>
     </div>
   )

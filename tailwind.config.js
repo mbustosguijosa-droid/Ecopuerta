@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["'Instrument Serif'", 'serif'],
-        body: ["'Barlow'", 'sans-serif'],
+        heading: ["'Fraunces'", 'Georgia', 'serif'],
+        body: ["'Hanken Grotesk'", 'system-ui', 'sans-serif'],
       },
       colors: {
         // Verde identitario de Ecopuerta Factory
