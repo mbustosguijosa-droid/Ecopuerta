@@ -223,6 +223,53 @@ html {
   45%, 100% { transform: translateX(560px) skewX(-14deg); }
 }
 
+/* ---------- Mariposas ---------- */
+.bf-flight {
+  animation-name: bf-flight;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: transform;
+}
+@keyframes bf-flight {
+  0% { transform: translate3d(var(--x0), var(--y0), 0) rotate(-8deg); }
+  25% { transform: translate3d(var(--x1), var(--y1), 0) rotate(10deg); }
+  50% { transform: translate3d(var(--x2), var(--y2), 0) rotate(-6deg); }
+  75% { transform: translate3d(var(--x3), var(--y3), 0) rotate(12deg); }
+  100% { transform: translate3d(var(--x4), var(--y4), 0) rotate(-4deg); }
+}
+.bf-bob {
+  animation: bf-bob 1.6s ease-in-out infinite alternate;
+}
+@keyframes bf-bob {
+  from { transform: translateY(-4px); }
+  to { transform: translateY(4px); }
+}
+.bf-wing {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation-name: bf-flap;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes bf-flap {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0.18); }
+}
+/* mariposa posada: aletea despacio y a ratos */
+.bf-rest .bf-wing {
+  animation-name: bf-rest;
+  animation-duration: 4s !important;
+  animation-direction: normal;
+}
+@keyframes bf-rest {
+  0%, 70%, 100% { transform: scaleX(0.85); }
+  78% { transform: scaleX(0.25); }
+  86% { transform: scaleX(0.9); }
+  92% { transform: scaleX(0.3); }
+}
+
 /* ---------- Sello giratorio ---------- */
 .seal-spin {
   animation: seal-spin 40s linear infinite;
@@ -282,6 +329,9 @@ html {
   .pollen circle,
   .seal-spin,
   .glass-shine,
+  .bf-flight,
+  .bf-bob,
+  .bf-wing,
   .scroll-cue {
     animation: none;
   }

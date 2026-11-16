@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { ButterflyShape } from './Butterflies'
 
 /**
  * El logotipo a gran escala: una cúpula de cristal sobre una peana de madera
@@ -241,6 +242,13 @@ export default function HeroPlant({ className = '' }: { className?: string }) {
         <rect x="294" y="164" width="12" height="18" rx="3" fill="#ffffff" fillOpacity="0.25" />
         <circle cx="300" cy="156" r="14" fill="#ffffff" fillOpacity="0.14" stroke="#ffffff" strokeOpacity="0.6" strokeWidth="1.5" />
         <circle cx="295" cy="151" r="4" fill="#ffffff" fillOpacity="0.7" />
+      </motion.g>
+
+      {/* mariposa posada sobre la cúpula */}
+      <motion.g initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.6, ease, delay: 3 }}>
+        <foreignObject x="268" y="98" width="64" height="52" className="bf-rest">
+          <ButterflyShape palette="ambar" />
+        </foreignObject>
       </motion.g>
     </svg>
   )

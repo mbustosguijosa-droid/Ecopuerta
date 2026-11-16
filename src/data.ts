@@ -19,10 +19,6 @@ export const PHOTOS = {
   entradaSapelli: { src: '/img/puerta-entrada-sapelli.webp', alt: 'Puerta de entrada en sapelli con cuarterones, pomo central y cerradura de seguridad dorada' },
 } satisfies Record<string, Photo>
 
-// ---------- Fondo de la portada (vídeo de las mariposas) ----------
-export const HERO_VIDEO =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_093722_ccfc7ebf-182f-419f-8a62-2dc02db7dd9d.mp4'
-
 // ---------- Taller ----------
 export const ADDRESS = {
   street: 'Calle Jorge Manrique',
