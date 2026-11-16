@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 import BlurText from './BlurText'
-import Butterflies from './Butterflies'
+import FadingVideo from './FadingVideo'
 import HeroPlant from './HeroPlant'
 import Seal from './Seal'
 import { ArrowUpRight } from './Icons'
+import { HERO_VIDEO } from '../data'
 
 const fadeUp = {
   initial: { filter: 'blur(10px)', opacity: 0, y: 20 },
@@ -14,12 +15,17 @@ const t = (delay: number) => ({ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const
 export default function Hero() {
   return (
     <section id="inicio" className="relative min-h-[100svh] md:h-[100svh] md:min-h-[680px] overflow-hidden bg-black">
-      {/* Fondo: luz suave + mariposas animadas */}
+      {/* Fondo: vídeo del paisaje con mariposas, oscurecido para que destaque la cúpula */}
+      <FadingVideo src={HERO_VIDEO} className="absolute inset-0 z-0 h-full w-full object-cover" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 bg-black/55" />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_60%_55%_at_50%_75%,rgba(63,164,91,0.16)_0%,rgba(0,0,0,0)_70%)]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_55%_50%_at_50%_72%,rgba(0,0,0,0)_0%,rgba(0,0,0,0.35)_60%,rgba(0,0,0,0.8)_100%)]"
       />
-      <Butterflies className="z-[1]" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-40 bg-gradient-to-b from-transparent to-black"
+      />
 
       <div
         aria-hidden="true"
