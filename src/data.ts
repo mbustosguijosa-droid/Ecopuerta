@@ -39,7 +39,7 @@ export const SERVICES = [
     title: 'Puertas personalizadas',
     tags: ['Diseño a medida', 'Madera noble', 'Seguridad', 'Acorazadas'],
     body: 'Puertas de entrada diseñadas contigo: cuarterones, maderas, barnices y herrajes a elegir. Fabricadas a mano, blindadas o acorazadas, y ajustadas al milímetro.',
-    photos: [PHOTOS.entradaSapelli, PHOTOS.castellana, PHOTOS.seguridad],
+    photos: [PHOTOS.entradaSapelli, PHOTOS.castellana],
   },
   {
     key: 'armarios',
@@ -53,7 +53,7 @@ export const SERVICES = [
     title: 'Puertas para el hogar',
     tags: ['Interior', 'Lacadas', 'Fresados', 'Herrajes'],
     body: 'Puertas de interior que visten la casa: lacadas en blanco, en madera o con fresados de diseño, con herrajes a juego y un montaje limpio y preciso.',
-    photos: [PHOTOS.puertasLacadas],
+    photos: [PHOTOS.puertasLacadas, PHOTOS.seguridad],
   },
 ] as const
 
