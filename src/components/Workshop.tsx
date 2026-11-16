@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { Section, SectionHeader, reveal, revealDelay } from './ui'
+import { ArrowUpRight } from './Icons'
+import { ADDRESS, MAPS_QUERY } from '../data'
 
 // TEXTOS PROVISIONALES — pendientes de los datos reales de la familia.
 const TIMELINE = [
@@ -26,7 +28,7 @@ const STATS = [
   { value: '100%', label: 'a medida' },
 ]
 
-const VALUES = ['Hecho a mano', 'Montaje propio', 'Trato cercano', 'Materiales de calidad']
+const VALUES = ['Trato cercano', 'Medición profesional', 'Productos de calidad', 'Montaje seguro', 'Hecho a mano']
 
 export default function Workshop() {
   return (
@@ -35,7 +37,13 @@ export default function Workshop() {
         <div>
           <SectionHeader
             label="El taller"
-            intro="Somos una empresa familiar con pocas manos y mucho oficio. Cada encargo lo atendemos personalmente: medimos, proponemos, fabricamos y montamos, sin intermediarios."
+            intro={
+              <>
+                Somos una empresa familiar y nos gusta el trato cercano: hablas siempre con nosotros, de principio a
+                fin. Tomamos las medidas en tu casa con precisión profesional, trabajamos solo con productos de
+                primera calidad y montamos cada puerta con seguridad y garantía.
+              </>
+            }
           >
             Una familia,
             <br />
@@ -70,6 +78,45 @@ export default function Workshop() {
             </motion.li>
           ))}
         </ol>
+      </div>
+
+      {/* Dónde estamos */}
+      <div className="mt-24 grid gap-6 lg:grid-cols-[0.8fr_1.6fr] items-stretch">
+        <motion.div {...reveal} className="liquid-glass rounded-[1.5rem] p-7 md:p-8 flex flex-col justify-between gap-8">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-eco-light font-body">Visítanos</p>
+            <h3 className="mt-3 font-heading text-4xl md:text-5xl tracking-[-0.02em] leading-[1.02]">
+              Nuestro <span className="em">taller</span>
+            </h3>
+            <address className="mt-6 not-italic font-body text-white/80 leading-relaxed">
+              {ADDRESS.street}
+              <br />
+              {ADDRESS.area}
+              <br />
+              {ADDRESS.city}
+            </address>
+          </div>
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(MAPS_QUERY)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="self-start inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black font-body hover:bg-eco-light transition-colors"
+          >
+            Cómo llegar
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </motion.div>
+
+        <motion.div {...reveal} className="liquid-glass relative rounded-[1.5rem] overflow-hidden min-h-[340px] md:min-h-[420px]">
+          <iframe
+            title="Vista aérea del taller de Ecopuerta Factory en el Polígono El Laurel"
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(MAPS_QUERY)}&t=k&z=17&ie=UTF8&output=embed`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="absolute inset-0 h-full w-full border-0 [filter:saturate(0.9)_contrast(1.05)]"
+          />
+          <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0_0_80px_rgba(0,0,0,0.55)]" />
+        </motion.div>
       </div>
     </Section>
   )

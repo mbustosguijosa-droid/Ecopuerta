@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
 import WoodGrain from './WoodGrain'
 import PhotoCycler from './PhotoCycler'
-import { DoorIcon, HangerIcon, ShieldIcon } from './Icons'
+import { DoorIcon, HangerIcon, HomeIcon } from './Icons'
 import { SectionHeader, revealDelay } from './ui'
 import { SERVICES } from '../data'
 
 const ICONS = {
   puertas: <DoorIcon className="h-5 w-5" />,
   armarios: <HangerIcon className="h-5 w-5" />,
-  seguridad: <ShieldIcon className="h-5 w-5" />,
+  hogar: <HomeIcon className="h-5 w-5" />,
 }
 
 export default function Capabilities() {

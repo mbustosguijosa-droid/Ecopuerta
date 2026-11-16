@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 import BlurText from './BlurText'
-import WoodGrain from './WoodGrain'
+import FadingVideo from './FadingVideo'
 import HeroPlant from './HeroPlant'
 import Seal from './Seal'
 import { ArrowUpRight } from './Icons'
+import { HERO_VIDEO } from '../data'
 
 const fadeUp = {
   initial: { filter: 'blur(10px)', opacity: 0, y: 20 },
@@ -13,19 +14,20 @@ const t = (delay: number) => ({ duration: 0.9, ease: [0.22, 1, 0.36, 1] as const
 
 export default function Hero() {
   return (
-    <section id="inicio" className="relative h-[100svh] min-h-[640px] overflow-hidden bg-black">
-      <WoodGrain />
+    <section id="inicio" className="relative min-h-[100svh] md:h-[100svh] md:min-h-[680px] overflow-hidden bg-black">
+      {/* Fondo: vídeo de las mariposas */}
+      <FadingVideo src={HERO_VIDEO} className="absolute inset-0 z-0 h-full w-full object-cover" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_50%_70%,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.55)_60%,rgba(0,0,0,0.9)_100%)]"
+      />
 
-      {/* El logo, a lo grande, de fondo */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex justify-center">
-        <HeroPlant className="h-[78svh] max-h-[860px] w-auto translate-y-[2%]" />
-      </div>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[55%] bg-gradient-to-b from-black/70 via-black/30 to-transparent"
       />
 
-      <div className="relative z-10 flex h-full flex-col items-center px-4 pt-28 md:pt-32 text-center">
+      <div className="relative z-10 flex min-h-[100svh] md:h-full flex-col items-center px-4 pt-28 md:pt-32 text-center">
         <div className="max-w-4xl">
           <BlurText
             text="Puertas hechas a mano para durar toda una vida"
@@ -58,6 +60,14 @@ export default function Hero() {
             <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
           </a>
         </motion.div>
+
+        {/* El logo, a lo grande: cúpula de cristal con el brote */}
+        <div className="pointer-events-none relative mt-10 flex w-full flex-1 items-end justify-center md:absolute md:inset-x-0 md:bottom-0 md:mt-0 md:-z-10">
+          <HeroPlant className="h-[56svh] max-h-[520px] md:h-[56svh] md:max-h-[700px] w-auto md:translate-y-[2%]" />
+          <div className="absolute right-0 top-0 h-20 w-20 md:hidden">
+            <Seal className="h-full w-full" />
+          </div>
+        </div>
       </div>
 
       {/* Sello: desde 2007 · +30 años */}
@@ -65,7 +75,7 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.85 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={t(2.4)}
-        className="absolute z-10 bottom-6 right-5 md:bottom-10 md:right-12 h-24 w-24 md:h-32 md:w-32"
+        className="absolute z-10 hidden md:block md:bottom-10 md:right-12 md:h-32 md:w-32"
       >
         <Seal className="h-full w-full" />
       </motion.div>

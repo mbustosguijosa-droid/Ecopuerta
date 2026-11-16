@@ -212,6 +212,17 @@ html {
   100% { opacity: 0; transform: translate(14px, -90px); }
 }
 
+/* brillo que cruza la cúpula de cristal */
+.glass-shine {
+  animation: glass-shine 9s ease-in-out 3.5s infinite;
+  transform-box: view-box;
+  will-change: transform;
+}
+@keyframes glass-shine {
+  0% { transform: translateX(0) skewX(-14deg); }
+  45%, 100% { transform: translateX(560px) skewX(-14deg); }
+}
+
 /* ---------- Sello giratorio ---------- */
 .seal-spin {
   animation: seal-spin 40s linear infinite;
@@ -270,6 +281,7 @@ html {
   .plant-glow,
   .pollen circle,
   .seal-spin,
+  .glass-shine,
   .scroll-cue {
     animation: none;
   }

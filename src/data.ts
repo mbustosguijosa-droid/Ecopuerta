@@ -15,17 +15,31 @@ export const PHOTOS = {
   vestidor: { src: '/img/vestidor.webp', alt: 'Vestidor en U con iluminación LED, cajonera central y barras de colgar' },
   armario: { src: '/img/armario-empotrado.webp', alt: 'Armario empotrado de siete puertas lacadas en blanco con molduras clásicas' },
   seguridad: { src: '/img/puerta-seguridad.webp', alt: 'Puerta de seguridad con acabado madera, tirador largo de acero y bisagras reforzadas' },
+  castellana: { src: '/img/puerta-castellana.webp', alt: 'Puerta castellana de pino con cuarterones de sapelli, recién salida del taller' },
+  entradaSapelli: { src: '/img/puerta-entrada-sapelli.webp', alt: 'Puerta de entrada en sapelli con cuarterones, pomo central y cerradura de seguridad dorada' },
 } satisfies Record<string, Photo>
+
+// ---------- Fondo de la portada (vídeo de las mariposas) ----------
+export const HERO_VIDEO =
+  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_093722_ccfc7ebf-182f-419f-8a62-2dc02db7dd9d.mp4'
+
+// ---------- Taller ----------
+export const ADDRESS = {
+  street: 'Calle Jorge Manrique',
+  area: 'Polígono El Laurel',
+  city: '45960 Chozas de Canales (Toledo)',
+}
+export const MAPS_QUERY = 'Calle Jorge Manrique, Polígono El Laurel, 45960 Chozas de Canales, Toledo'
 
 // ---------- Servicios (tarjetas) ----------
 // `photos`: con el cursor encima van pasando en orden aleatorio.
 export const SERVICES = [
   {
     key: 'puertas',
-    title: 'Puertas a medida',
-    tags: ['Diseño propio', 'Lacadas', 'Madera', 'Fresados'],
-    body: 'Diseñamos contigo cada puerta: modelo, acabado y herrajes. Lacadas, en madera o con fresados exclusivos, fabricadas a mano y ajustadas al milímetro.',
-    photos: [PHOTOS.puertasLacadas],
+    title: 'Puertas personalizadas',
+    tags: ['Diseño a medida', 'Madera noble', 'Seguridad', 'Acorazadas'],
+    body: 'Puertas de entrada diseñadas contigo: cuarterones, maderas, barnices y herrajes a elegir. Fabricadas a mano, blindadas o acorazadas, y ajustadas al milímetro.',
+    photos: [PHOTOS.entradaSapelli, PHOTOS.castellana, PHOTOS.seguridad],
   },
   {
     key: 'armarios',
@@ -35,11 +49,11 @@ export const SERVICES = [
     photos: [PHOTOS.vestidor, PHOTOS.armario],
   },
   {
-    key: 'seguridad',
-    title: 'Entrada y seguridad',
-    tags: ['Acorazadas', 'Seguridad', 'PVC', 'Aluminio'],
-    body: 'Puertas de seguridad, acorazadas y cerramientos en PVC y aluminio. Montaje profesional, herrajes de calidad y barnizados que aguantan el paso del tiempo.',
-    photos: [PHOTOS.seguridad],
+    key: 'hogar',
+    title: 'Puertas para el hogar',
+    tags: ['Interior', 'Lacadas', 'Fresados', 'Herrajes'],
+    body: 'Puertas de interior que visten la casa: lacadas en blanco, en madera o con fresados de diseño, con herrajes a juego y un montaje limpio y preciso.',
+    photos: [PHOTOS.puertasLacadas],
   },
 ] as const
 

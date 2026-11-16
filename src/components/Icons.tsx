@@ -75,3 +75,10 @@ export const FacebookIcon = (p: P) => (
     <path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46H16.6V4.46A21 21 0 0 0 14.3 4.3c-2.3 0-3.8 1.4-3.8 3.95v2.25H8v3h2.5V21h3Z" />
   </svg>
 )
+
+/** Casa (puertas para el hogar) */
+export const HomeIcon = (p: P) => (
+  <svg {...base} fill="currentColor" {...p}>
+    <path d="M12 3 2.5 11h2.5v9h5.5v-6h3v6H19v-9h2.5L12 3Z" />
+  </svg>
+)
